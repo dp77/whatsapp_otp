@@ -1,39 +1,77 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+**README.md**
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+# Whatsapp OTP Sender & Crypto Coin Data Plugin
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
+Welcome to the Whatsapp OTP Sender & Crypto Coin Data Plugin! This Flutter package allows you to send OTPs via WhatsApp and fetch cryptocurrency data easily within your Flutter applications.
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+## Installation
 
-## Features
+To use this package, add `whatsapp_otp` as a dependency in your `pubspec.yaml` file.
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+  whatsapp_otp: ^0.1.0 # Check for latest version on pub.dev
+```
 
-## Getting started
+Then, run:
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+```bash
+$ flutter pub get
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+### Sending OTPs via WhatsApp
+
+To send an OTP via WhatsApp, simply call the `sendOTP` function provided by the package and provide the recipient's phone number along with the OTP.
 
 ```dart
-const like = 'sample';
+import 'package:whatsapp_otp/whatsapp_otp.dart';
+
+// Inside your function or wherever needed
+void sendOTP() {
+  String recipientNumber = '+1234567890'; // Phone number to receive OTP
+  String otp = '1234'; // OTP to send
+  
+  WhatsappOTPSender.sendOTP(recipientNumber, otp);
+}
 ```
 
-## Additional information
+### Fetching Crypto Coin Data
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+To fetch cryptocurrency data, use the `fetchCryptoData` function provided by the package. This function returns a `CryptoData` object containing relevant information about the requested cryptocurrency.
+
+```dart
+import 'package:whatsapp_otp/whatsapp_otp.dart';
+
+// Inside your async function or wherever needed
+void fetchCrypto() async {
+  String cryptoSymbol = 'BTC'; // Cryptocurrency symbol (e.g., BTC, ETH, etc.)
+  
+  CryptoData cryptoData = await WhatsappOTPSender.fetchCryptoData(cryptoSymbol);
+  
+  // Accessing crypto data
+  print('Crypto Name: ${cryptoData.name}');
+  print('Current Price: ${cryptoData.price}');
+  print('Market Cap: ${cryptoData.marketCap}');
+  // Add more fields as needed
+}
+```
+
+## Testing Period
+
+Please note that this package is currently in a testing period, and some features may not be fully functional. Your feedback and contributions are highly appreciated to improve this package further.
+
+## Issues & Contributions
+
+If you encounter any issues or have suggestions for improvements, feel free to open an issue or create a pull request on [GitHub](https://github.com/your-package-repo-url).
+
+## License
+
+This package is released under the [MIT License](https://opensource.org/licenses/MIT). Feel free to use, modify, and distribute this package as per the terms of the license.
+  
+---
+
+Feel free to customize this README according to your specific package features, guidelines, and preferences.

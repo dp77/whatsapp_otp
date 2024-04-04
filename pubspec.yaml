@@ -1,7 +1,7 @@
 name: whatsapp_otp
 description: "A flutter widget for get market coin details."
 version: 0.0.1
-homepage:
+homepage: https://github.com/dp77/whatsapp_otp.git
 
 environment:
   sdk: '>=3.3.1 <4.0.0'
